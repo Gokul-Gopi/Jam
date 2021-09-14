@@ -5,14 +5,13 @@ import { useDispatch } from 'react-redux'
 import { followUser, setFollowedUsers } from '../../features/Explore/exploreSlice'
 import { useSelector } from 'react-redux'
 
-const PeopleCard = ({ username, userbio, userID }) => {
+const PeopleCard = ({ username, userbio, userID, following }) => {
     const dispatch = useDispatch()
     const { usersFollowed } = useSelector(state => state.explore)
     // console.log(usersFollowed)
 
     const followUserHandler = () => {
         dispatch(followUser({ userToFollow: userID }))
-        // dispatch(setFollowedUsers(userID))
     }
 
     return (
@@ -25,7 +24,12 @@ const PeopleCard = ({ username, userbio, userID }) => {
                 <span className='userbio'>{userbio}</span>
             </div>
             <div className='user-follow'>
-                <button onClick={() => followUserHandler()}> Follow</button>
+                {following
+                    ? <button onClick={() => followUserHandler()}>Unfollow</button>
+                    : <button onClick={() => followUserHandler()}>Follow</button>
+                }
+
+
             </div>
         </div>
     )

@@ -18,6 +18,7 @@ export const followUser = createAsyncThunk('explore/followUser', async (userID) 
         url: `${BACKEND}/user/follow`,
         data: { userToFollow },
     })
+    console.log(data)
     return data;
 })
 
@@ -63,7 +64,12 @@ export const exploreSlice = createSlice({
             state.loading = false;
         },
         [followUser.fulfilled]: (state, action) => {
-            state.message = action.payload.followedUserID;
+            state.users = state.users.map(user => {
+                if (user._id === action.payload.updatedFollowers) {
+                    return { ...user, following: !user.following }
+                }
+                return user
+            })
         },
         [followUser.rejected]: (state, action) => {
             state.message = action.payload.message;
