@@ -1,0 +1,35 @@
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+    width: 100%;
+    padding: 0.5rem 1rem;
+}
+
+nav h2{
+    font-size: 3rem;
+}
+
+nav .navigation-items{
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+}
+
+nav .nav-link{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+nav .nav-link .icon{
+    font-size: 1.4rem;
+}
+
+nav .link-to-home{
+    text-decoration: none;
+    color: black;
+}

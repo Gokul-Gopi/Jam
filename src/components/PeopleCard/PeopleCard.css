@@ -1,0 +1,36 @@
+.people-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    width: 12rem;
+    padding: 0.5rem;
+    border-radius: 7px;
+}
+
+.people-card .user-img {
+    text-align: center;
+    border-bottom: 1px solid gray;
+    width: 100%;
+}
+
+.people-card .user-img .icon{
+    font-size: 3rem;
+}
+
+.people-card .user-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.people-card .user-info span{
+    text-align: center;
+    width: 60%;
+}
+
+.people-card .user-info .userbio{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -1,0 +1,97 @@
+.authForm{
+    display: flex;
+    height: 100vh;
+    font-size: 1.1rem;
+}
+
+.authForm::before{
+    content: "";
+    display: block;
+    background: url('https://images.unsplash.com/photo-1554785015-34fc48ac73e5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80');
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    width: 50vw;
+}
+
+.auth-form-container{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    justify-content: center;
+}
+
+.auth-form-container form{
+    border: 1px solid rgb(141, 136, 136);
+    border-radius: 5px;
+    padding: 1rem;
+    width: 50%;
+}
+
+.auth-form-container .input-box{
+    border: 1px solid black;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.auth-form-container .error{
+    display: block;
+    color: red;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+/* .auth-form-container div:not(:last-child){
+    margin-bottom: 1.2rem;
+} */
+
+.auth-form-container .input-box .icon{
+    font-size: 1.8rem;
+    align-self: center;
+}
+
+.auth-form-container .input-box .show-pwd-icon{
+    align-self: center;
+    cursor: pointer;
+}
+
+.auth-form-container input{
+    border: none;
+    margin-left: 5px;
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.auth-form-container input:focus{
+    outline: none;
+}
+
+.auth-form-container form .form-btns{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-form-container .form-btn{
+    margin: 10px 0;
+    width: 100px;
+    padding: 0.2rem;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid black;
+    font-size: 1.1rem;
+}
+
+.auth-form-container .route-to-signup{
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    margin-left: 5px;
+}
