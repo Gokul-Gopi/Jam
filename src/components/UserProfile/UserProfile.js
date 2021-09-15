@@ -4,17 +4,21 @@ import { useDispatch } from 'react-redux'
 import { getUserDetails, getUsersPosts } from '../../features/Profile/profileSlice'
 import '../UserProfile/UserProfile.css'
 import UserPost from '../UserPost/UserPost'
-const UserProfile = () => {
+import { BiExit } from 'react-icons/bi'
+import { logout } from '../../features/Auth/authSlice'
 
+const UserProfile = () => {
     const dispatch = useDispatch()
     const { userDetails, userPosts } = useSelector(state => state.profile)
-    console.log({ userDetails, userPosts })
+
+    const logoutHandler = () => {
+        dispatch(logout())
+    }
 
 
     useEffect(() => {
         dispatch(getUserDetails())
         dispatch(getUsersPosts())
-        console.log('ran')
     }, [])
 
     return (
@@ -23,6 +27,7 @@ const UserProfile = () => {
                 <div className='user-name'>
                     <div className='img'> {userDetails?.userName[0]}</div>
                     <div className='name'> {userDetails?.userName}</div>
+                    <button className='logout-btn' onClick={() => logoutHandler()}><BiExit /></button>
                 </div>
 
                 <div className='user-bio'>
@@ -31,8 +36,9 @@ const UserProfile = () => {
             </div>
 
             <div className="user-allposts">
-                {userPosts.map(post => {
-                    return <UserPost key={post._id} input={post.text} likes={post.likes.length} comments={post.comments} />
+                <h2>My posts</h2>
+                {userPosts.map((post, index) => {
+                    return <UserPost key={index} data={post} name={userDetails?.userName} />
                 })}
             </div>
         </div>

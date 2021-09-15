@@ -5,6 +5,10 @@
   font-family: 'Lato', sans-serif;
 }
 
+body{
+  scroll-behavior: smooth;
+}
+
 button{
   cursor: pointer;
 }

@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 import { BACKEND } from '../../api'
+import callToastify from "../../utils/toast"
 
 
 export const loadPosts = createAsyncThunk("feed/loadPosts", async () => {
@@ -28,7 +29,7 @@ export const likePost = createAsyncThunk("feed/likePost", async (postID) => {
         method: 'POST',
         url: `${BACKEND}/post/like/${postID}`,
     })
-    console.log(data)
+
     return data;
 })
 
@@ -40,7 +41,7 @@ export const commentOnPost = createAsyncThunk("feed/commentOnPost", async (userP
         url: `${BACKEND}/comment/${postID}`,
         data: { commentInput }
     })
-    console.log(data)
+
     return data
 })
 
@@ -73,7 +74,7 @@ export const feedSlice = createSlice({
             state.loading = true;
         },
         [loadPosts.fulfilled]: (state, action) => {
-            state.posts = action.payload.posts;
+            state.posts = action.payload.posts
             state.loading = false;
         },
         [loadPosts.rejected]: (state) => {
@@ -85,7 +86,6 @@ export const feedSlice = createSlice({
         [createPost.fulfilled]: (state, action) => {
             state.postLoading = false;
             state.success = true
-            state.posts = [...state.posts, action.payload.post]
         },
         [createPost.rejected]: (state) => {
             state.postLoading = false;
@@ -99,10 +99,11 @@ export const feedSlice = createSlice({
             })
         },
         [commentOnPost.rejected]: (state, action) => {
-            state.toast = 'Somethings wrong please try again'
+            state.toast = callToastify('Somethings wrong please try again')
         },
         [likePost.fulfilled]: (state, action) => {
             state.posts = state.posts.map(post => {
+                console.log(post)
                 if (post._id === action.payload.post._id) {
                     return action.payload.post
                 }

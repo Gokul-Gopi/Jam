@@ -9,7 +9,6 @@ const Explore = () => {
 
     const dispatch = useDispatch()
     const { users } = useSelector(state => state.explore)
-    const [searchedUsers, setSearchedUser] = useState([])
 
     useEffect(() => {
         dispatch(getUsers())
@@ -25,7 +24,7 @@ const Explore = () => {
         <div className='explore'>
             <div className="explore-container">
                 <div className="search-user-input">
-                    <input type="text" onChange={(e) => { searchUsers(e.target.value) }} />
+                    <input type="text" onChange={(e) => { searchUsers(e.target.value) }} placeholder='Search users' />
                     <button>Search</button>
                 </div>
 

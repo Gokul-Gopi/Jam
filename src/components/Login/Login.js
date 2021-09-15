@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../Login/Login.css'
 import { BiUserCircle } from 'react-icons/bi'
 import { RiLockPasswordLine } from 'react-icons/ri'
@@ -7,8 +7,10 @@ import { AiOutlineEyeInvisible } from 'react-icons/ai'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { loginUser, setToast } from '../../features/Auth/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import callToastify from '../../utils/toast'
 
 const Login = () => {
+    const { success } = useSelector(state => state.auth)
     const [showPwd, setShowPwd] = useState(false)
     const [userDetails, setUserDetails] = useState({
         userName: '',
@@ -17,6 +19,10 @@ const Login = () => {
     const dispatch = useDispatch()
     const { isLoggedIn } = useSelector(state => state.auth)
     const navigate = useNavigate()
+
+    useEffect(() => {
+        success && callToastify('Please log in to your account')
+    }, [success])
 
     const loginHandler = (event) => {
         event.preventDefault()

@@ -2,13 +2,10 @@ import React from 'react'
 import '../PeopleCard/PeopleCard.css'
 import { BiUserCircle } from 'react-icons/bi'
 import { useDispatch } from 'react-redux'
-import { followUser, setFollowedUsers } from '../../features/Explore/exploreSlice'
-import { useSelector } from 'react-redux'
+import { followUser } from '../../features/Explore/exploreSlice'
 
 const PeopleCard = ({ username, userbio, userID, following }) => {
     const dispatch = useDispatch()
-    const { usersFollowed } = useSelector(state => state.explore)
-    // console.log(usersFollowed)
 
     const followUserHandler = () => {
         dispatch(followUser({ userToFollow: userID }))
@@ -17,7 +14,7 @@ const PeopleCard = ({ username, userbio, userID, following }) => {
     return (
         <div className='people-card'>
             <div className='user-img'>
-                <BiUserCircle className='icon' />
+                <img src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png" />
             </div>
             <div className="user-info">
                 <span className='username'>{username}</span>
@@ -28,8 +25,6 @@ const PeopleCard = ({ username, userbio, userID, following }) => {
                     ? <button onClick={() => followUserHandler()}>Unfollow</button>
                     : <button onClick={() => followUserHandler()}>Follow</button>
                 }
-
-
             </div>
         </div>
     )

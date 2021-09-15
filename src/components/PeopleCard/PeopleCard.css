@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid black;
-    width: 12rem;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    width: 11rem;
     padding: 0.5rem;
     border-radius: 7px;
 }
@@ -12,6 +12,13 @@
     text-align: center;
     border-bottom: 1px solid gray;
     width: 100%;
+    padding: 0.5rem 0;
+}
+
+.people-card .user-img img{
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
 }
 
 .people-card .user-img .icon{
@@ -26,11 +33,20 @@
 
 .people-card .user-info span{
     text-align: center;
-    width: 60%;
+    width: 90%;
+    margin-bottom: 5px;
 }
 
 .people-card .user-info .userbio{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.people-card .user-follow button{
+    margin-top: 10px;
+    padding: 0.4rem;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-weight: 600;
 }

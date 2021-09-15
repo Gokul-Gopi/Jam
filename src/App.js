@@ -10,6 +10,9 @@ import Explore from './components/Explore/Explore';
 import Nortification from './components/Nortification/Nortification';
 import UserProfile from './components/UserProfile/UserProfile';
 import { setToken } from './features/Auth/authSlice'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
 
 function App() {
   let navigate = useNavigate()

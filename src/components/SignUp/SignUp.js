@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../SignUp/SignUp.css'
 import { BiUserCircle } from 'react-icons/bi'
 import { RiLockPasswordLine } from 'react-icons/ri'
@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom'
 import { loginUser, signUpUser } from '../../features/Auth/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import callToastify from '../../utils/toast'
 
 const SignUp = () => {
     const navigate = useNavigate()
@@ -34,6 +35,10 @@ const SignUp = () => {
         pwd: '',
         confirmPwd: ''
     })
+
+    useEffect(() => {
+        success && navigate('/')
+    }, [success])
 
     const validateForm = () => {
         let validator = true
@@ -82,7 +87,6 @@ const SignUp = () => {
         event.preventDefault()
         if (validateForm()) {
             dispatch(signUpUser(userDetails))
-            success && navigate('/login')
         }
     }
 

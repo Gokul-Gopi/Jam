@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { BACKEND } from '../../api'
 import axios from "axios";
+import callToastify from '../../utils/toast'
 
 const loginUser = createAsyncThunk('auth/loginUser', async (userDetails) => {
     const { data } = await axios({
@@ -18,7 +19,7 @@ const signUpUser = createAsyncThunk('auth/signUpUser', async (userDetails) => {
         url: `${BACKEND}/user/signup`,
         data: userDetails,
     })
-    console.log(data, 'ran')
+
     return data;
 })
 
@@ -61,7 +62,7 @@ const AuthSlice = createSlice({
             state.loading = false
         },
         [signUpUser.rejected]: (state, action) => {
-            // state.toast = action.payload.message;
+            state.toast = callToastify('Sign Up failed', true)
             state.loading = false
         },
 
@@ -76,11 +77,11 @@ const AuthSlice = createSlice({
             axios.defaults.headers.common["Authorization"] = token;
             state.userName = name;
             state.isLoggedIn = true;
-            state.toast = 'Successfully logged in!';
+            state.toast = callToastify('Successfully logged in!')
             state.loading = false;
         },
         [loginUser.rejected]: (state, action) => {
-            state.toast = action.payload.message;
+            state.toast = callToastify('Login failed, true');
             state.loading = false
         },
     }

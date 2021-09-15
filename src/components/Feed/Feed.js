@@ -3,7 +3,6 @@ import '../Feed/Feed.css'
 import UserPost from '../UserPost/UserPost'
 import { useDispatch, useSelector } from 'react-redux'
 import { createPost, loadPosts } from '../../features/Feed/feedSlice'
-import axios from 'axios'
 
 const Feed = () => {
     const [postInput, setPostInput] = useState('')
@@ -13,8 +12,8 @@ const Feed = () => {
     const dispatch = useDispatch()
 
     const submitPostHandler = () => {
+        setPostInput('')
         dispatch(createPost(postInput))
-        success && setPostInput('')
     }
 
     useEffect(() => {
@@ -26,12 +25,18 @@ const Feed = () => {
         <div className='feed'>
             <div className="feed-container">
                 <div className="create-post-input">
-                    <input type="text" value={postInput} onChange={(e) => { setPostInput(e.target.value) }} />
+                    <input type="text" value={postInput} onChange={(e) => { setPostInput(e.target.value) }} placeholder='Whats happening?' />
                     <button onClick={() => submitPostHandler()}>Post</button>
                 </div>
-                {posts.map(post => {
-                    return <UserPost input={post.text} postID={post._id} key={post._id} likes={post.likes.length} comments={post.comments} />
-                })}
+                {posts.length === 0
+                    ? (<span>No post</span>)
+                    : (posts.map(i => {
+                        return i.posts.map(e => {
+                            return <UserPost key={e._id} name={i.userName} data={e} />
+                        })
+
+                    }))
+                }
 
             </div>
         </div>
