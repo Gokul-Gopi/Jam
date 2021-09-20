@@ -5,13 +5,21 @@
 }
 
 .authForm::before{
-    content: "";
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    content: "JAM!";
+    font-size: 10rem;
+    color: white;
     background: url('https://images.unsplash.com/photo-1554785015-34fc48ac73e5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80');
+    background-blend-mode: multiply;
+    background-color: #666666;
     background-size: cover;
     background-position: center center;
     height: 100vh;
     width: 50vw;
+    /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
 .auth-form-container{

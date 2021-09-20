@@ -32,7 +32,6 @@ const Login = () => {
         }
     }
 
-    console.log(isLoggedIn)
 
     return (
         <div className='authForm'>

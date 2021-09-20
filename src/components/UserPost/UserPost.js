@@ -13,7 +13,7 @@ const UserPost = ({ name, data }) => {
     const likeOnPost = () => {
         dispatch(likePost(_id))
     }
-
+    console.log({ likes })
 
     const postComment = () => {
         if (commentInput.length !== 0) {

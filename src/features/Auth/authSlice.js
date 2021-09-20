@@ -28,6 +28,7 @@ const initialState = {
     loading: false,
     isLoggedIn: false,
     userName: null,
+    userID: null,
     toast: null,
     success: false
 }
@@ -57,7 +58,7 @@ const AuthSlice = createSlice({
             state.loading = true
         },
         [signUpUser.fulfilled]: (state, action) => {
-            state.toast = `Successfully Registered!`;
+            state.toast = `Please log into your account`;
             state.success = action.payload.success;
             state.loading = false
         },
@@ -70,18 +71,19 @@ const AuthSlice = createSlice({
             state.loading = true;
         },
         [loginUser.fulfilled]: (state, action) => {
-            const { name, token, success } = action.payload;
+            const { name, token, id, success } = action.payload;
             if (success) {
                 localStorage.setItem("userDetails", JSON.stringify({ name, token }));
             }
             axios.defaults.headers.common["Authorization"] = token;
             state.userName = name;
+            state.userID = id;
             state.isLoggedIn = true;
             state.toast = callToastify('Successfully logged in!')
             state.loading = false;
         },
         [loginUser.rejected]: (state, action) => {
-            state.toast = callToastify('Login failed, true');
+            state.toast = callToastify('Login failed', true);
             state.loading = false
         },
     }

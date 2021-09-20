@@ -1,7 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
+import { useSelector } from "react-redux"
 import { BACKEND } from '../../api'
 import callToastify from "../../utils/toast"
+import authSlice from "../Auth/authSlice"
 
 
 export const loadPosts = createAsyncThunk("feed/loadPosts", async () => {
@@ -19,17 +21,17 @@ export const createPost = createAsyncThunk("feed/createPost", async (userPost) =
         url: `${BACKEND}/post`,
         data: { postInput: userPost },
     })
-    console.log(data)
+
     return data;
 })
 
 export const likePost = createAsyncThunk("feed/likePost", async (postID) => {
-    // const { postID, routeToTake, authorId } = userActionPayload;
+    console.log(postID)
     const { data } = await axios({
         method: 'POST',
         url: `${BACKEND}/post/like/${postID}`,
     })
-
+    console.log({ data })
     return data;
 })
 
@@ -102,13 +104,7 @@ export const feedSlice = createSlice({
             state.toast = callToastify('Somethings wrong please try again')
         },
         [likePost.fulfilled]: (state, action) => {
-            state.posts = state.posts.map(post => {
-                console.log(post)
-                if (post._id === action.payload.post._id) {
-                    return action.payload.post
-                }
-                return post
-            })
+
         },
         [likePost.rejected]: (state, action) => {
             // state.message = action.payload.message;
