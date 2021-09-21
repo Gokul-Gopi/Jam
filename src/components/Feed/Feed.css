@@ -9,12 +9,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* border: 1px solid gainsboro; */
     padding: 1rem;
 }
 
 .feed-container > div{
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .create-post-input{
@@ -23,14 +22,15 @@
 }
 
 .create-post-input input{
-    padding: 0.5rem;
+    padding: 0.5rem 0.7rem;
     width: 40rem;
     height: 3rem;
     font-size: 1.1rem;
     margin-right: 15px;
     border: 5px;
-    background: rgb(230, 229, 229);
     border-radius: 5px;
+    border: 2px solid var(--primary-color);
+    background-color: transparent;
 }
 
 .create-post-input input:focus{
@@ -43,4 +43,6 @@
     font-size: 1.1rem;
     border-radius: 5px;
     border: none;
+    background-color: var(--primary-color);
+    color: white;
 }

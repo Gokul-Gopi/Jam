@@ -31,8 +31,10 @@
 .nortification-template span{
     display: flex;
     align-items: center;
+    color: var(--primary-color);
 }
 
 .nortification-template .icon{
     margin-right: 10px;
+    color: var(--primary-color);
 }

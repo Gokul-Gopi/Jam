@@ -1,6 +1,5 @@
 import React from 'react'
 import '../PeopleCard/PeopleCard.css'
-import { BiUserCircle } from 'react-icons/bi'
 import { useDispatch } from 'react-redux'
 import { followUser } from '../../features/Explore/exploreSlice'
 
