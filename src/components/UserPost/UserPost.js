@@ -46,7 +46,7 @@ const UserPost = ({ name, data }) => {
             </div>
 
             {expandPostContainer &&
-                <div className='comments-container'>
+                <div className='comments-container' style={{ display: expandPostContainer ? 'block' : 'none' }}>
                     {comments.map(comment => {
                         return (
                             <div className='all-comments' key={comment._id}>

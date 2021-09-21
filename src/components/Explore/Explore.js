@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { getUsers } from '../../features/Explore/exploreSlice'
 import '../Explore/Explore.css'
 import PeopleCard from '../PeopleCard/PeopleCard'
+import { BiSearchAlt } from 'react-icons/bi'
 
 const Explore = () => {
 
@@ -25,7 +26,7 @@ const Explore = () => {
             <div className="explore-container">
                 <div className="search-user-input">
                     <input type="text" onChange={(e) => { searchUsers(e.target.value) }} placeholder='Search users' />
-                    <button>Search</button>
+                    <button><BiSearchAlt /></button>
                 </div>
 
                 <div className='user-list-grid'>
