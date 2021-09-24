@@ -9,7 +9,7 @@ import { BiSearchAlt } from 'react-icons/bi'
 const Explore = () => {
 
     const dispatch = useDispatch()
-    const { users } = useSelector(state => state.explore)
+    const { users, usersFollowed } = useSelector(state => state.explore)
 
     useEffect(() => {
         dispatch(getUsers())

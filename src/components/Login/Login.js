@@ -24,8 +24,7 @@ const Login = () => {
         success && callToastify('Please log in to your account')
     }, [success])
 
-    const loginHandler = (event) => {
-        event.preventDefault()
+    const loginHandler = () => {
         dispatch(loginUser(userDetails))
         if (isLoggedIn) {
             navigate('/')

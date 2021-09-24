@@ -44,12 +44,12 @@ const AuthSlice = createSlice({
             state.isLoggedIn = true;
             state.userName = action.payload.name;
             axios.defaults.headers.common["Authorization"] = action.payload.token;
-            console.log('setting up token--' + action.payload.token)
         },
         logout: (state) => {
             localStorage.removeItem("userDetails");
             axios.defaults.headers.common["authorization"] = null;
             state.isLoggedIn = false;
+            state.success = false
         }
     },
 

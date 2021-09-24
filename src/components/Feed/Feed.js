@@ -29,12 +29,11 @@ const Feed = () => {
                     <input type="text" value={postInput} onChange={(e) => { setPostInput(e.target.value) }} placeholder='Whats happening?' />
                     <button onClick={() => submitPostHandler()}><MdSend /></button>
                 </div>
+
                 {posts.length === 0
                     ? (<span>No post</span>)
-                    : (posts.map(i => {
-                        return i.posts.map(e => {
-                            return <UserPost key={e._id} name={i.userName} data={e} />
-                        })
+                    : (posts.map(post => {
+                        return <UserPost key={post.id} name={post.name} postID={post.id} likes={post.likes} comments={post.comments} input={post.input} />
 
                     }))
                 }

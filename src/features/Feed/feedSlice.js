@@ -92,6 +92,7 @@ export const feedSlice = createSlice({
         [createPost.rejected]: (state) => {
             state.postLoading = false;
         },
+
         [commentOnPost.fulfilled]: (state, action) => {
             state.posts = state.posts.map(post => {
                 if (post._id === action.payload.post._id) {
@@ -103,8 +104,14 @@ export const feedSlice = createSlice({
         [commentOnPost.rejected]: (state, action) => {
             state.toast = callToastify('Somethings wrong please try again')
         },
-        [likePost.fulfilled]: (state, action) => {
 
+        [likePost.fulfilled]: (state, action) => {
+            state.posts = state.posts.map(post => {
+                if (post.id === action.payload.updatedPost.id) {
+                    return action.payload.updatedPost
+                }
+                return post
+            })
         },
         [likePost.rejected]: (state, action) => {
             // state.message = action.payload.message;

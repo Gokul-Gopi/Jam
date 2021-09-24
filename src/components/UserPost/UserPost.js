@@ -1,23 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import '../UserPost/UserPost.css'
-import { BiLike } from 'react-icons/bi'
+import { AiOutlineLike } from 'react-icons/ai'
+import { AiTwotoneLike } from 'react-icons/ai'
 import { BiCommentDetail } from 'react-icons/bi'
 import { useDispatch, useSelector } from 'react-redux'
 import { commentOnPost, likePost } from '../../features/Feed/feedSlice'
 
-const UserPost = ({ name, data }) => {
+const UserPost = ({ postID, name, likes, comments, input }) => {
     const dispatch = useDispatch()
     const [commentInput, setCommentInput] = useState('')
     const [expandPostContainer, setExpandPostContainer] = useState(false)
-    const { likes, comments, text, _id } = data
+    const { userID } = useSelector(state => state.auth)
+
     const likeOnPost = () => {
-        dispatch(likePost(_id))
+        dispatch(likePost(postID))
     }
-    console.log({ likes })
 
     const postComment = () => {
         if (commentInput.length !== 0) {
-            dispatch(commentOnPost({ _id, commentInput }))
+            dispatch(commentOnPost({ postID, commentInput }))
             setCommentInput('')
         }
     }
@@ -25,17 +26,20 @@ const UserPost = ({ name, data }) => {
     return (
         <div className='user-post'>
             <div className='user-info'>
-                <div className="img">{!name ? "" : name[0]}</div>
+                <div className="img">{name[0]}</div>
                 <div className="name">{name}</div>
             </div>
 
             <div className='user-tweet'>
-                <textarea value={text} readOnly />
+                <textarea value={input} readOnly />
             </div>
 
             <div className='options'>
                 <div>
-                    <button onClick={() => likeOnPost()}><BiLike /></button>
+
+                    <button onClick={() => likeOnPost()}>
+                        {likes.includes(userID) ? <AiTwotoneLike /> : <AiOutlineLike />}
+                    </button>
                     <span>{likes.length !== 0 && likes.length}</span>
                 </div>
 
