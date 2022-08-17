@@ -1,120 +1,127 @@
-.user-post{
-    box-shadow: 1px 1px 3px 1px rgba(0,145,218,0.3);
-    width: 100%;
-    padding: 0.7rem 1rem;
-    border-radius: 5px;
+.user-post {
+  box-shadow: 1px 1px 3px 1px rgba(0, 145, 218, 0.3);
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
 }
 
-.user-post .user-info{
-    display: flex;
-    align-items: center;
+.user-post .user-info {
+  display: flex;
+  align-items: center;
 }
 
-.user-post .user-info .img{
-    display: grid;
-    place-items: center;
-    height: 2.5rem;
-    width: 2.5rem;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    color: white;
-    margin-right: 1rem;
-    font-weight: bold;
+.user-post .user-info .img {
+  display: grid;
+  place-items: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  margin-right: 1rem;
+  font-weight: bold;
 }
 
 .user-post .user-tweet {
-    width: 100%;
-    margin: 0.5rem 0;
-    border-bottom: 1px solid rgb(184, 184, 184);
+  width: 100%;
+  margin: 0.5rem 0;
+  border-bottom: 1px solid rgb(184, 184, 184);
 }
 
-.user-post .user-tweet textarea{
-    width: 100%;
-    padding: 0.5rem;
-    pointer-events: none;
-    resize: none;
-    font-size: 1.1rem;
-    border: none;
+.user-post .user-tweet textarea {
+  width: 100%;
+  padding: 0.5rem;
+  pointer-events: none;
+  resize: none;
+  font-size: 1.1rem;
+  border: none;
 }
 
-.user-post .options{
-    display: flex;
-    align-items: center;
-    margin-top: 1rem;
+.user-post .options {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
 }
 
-.user-post .options div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 2rem;
-    margin-left: 0.2rem;
-    color: var(--primary-color);
+.user-post .options div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2rem;
+  margin-left: 0.2rem;
+  color: var(--primary-color);
 }
 
-.user-post .options button{
-    background: transparent;
-    border: none;
-    font-size: 1.6rem;
-    cursor: pointer;
-    color: var(--primary-color);
+.user-post .options button {
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: var(--primary-color);
 }
 
-.user-post .options span{
-    margin-left: 4px;
+.user-post .options span {
+  margin-left: 4px;
 }
 
-.comments-container{
-    margin-top: 10px;
-    padding: 0.5rem;
-    transition: all 3s;
+.comments-container {
+  margin-top: 10px;
+  padding: 0.5rem;
+  transition: all 3s;
 }
 
-.comments-container > div{
-    margin-bottom: 1rem;
+.comments-container > div {
+  margin-bottom: 1rem;
 }
 
-.comments-container .all-comments{
-    display: flex;
+.comments-container .all-comments {
+  display: flex;
 }
 
-.comments-container .user-name{
-    display: grid;
-    place-items: center;
-    height: 1.5rem;
-    width: 1.5rem;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    color: white;
-    font-size: 0.8rem;
+.comments-container .user-name {
+  display: grid;
+  place-items: center;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 0.8rem;
 }
 
-.comments-container .user-comment{
-    align-self: flex-end;
-    margin-left: 5px;
+.comments-container .user-comment {
+  align-self: flex-end;
+  margin-left: 5px;
 }
 
-
-.comments-container .comment-input{
-    display: flex;
+.comments-container .comment-input {
+  display: flex;
 }
 
-.comments-container input{
-    width: 100%;
-    border-radius: 5px;
-    padding: 0.5rem;
-    height: 2.5rem;
-    font-size: 1.1rem;
-    background: transparent;
-    border: 1px solid var(--primary-color);
+.comments-container input {
+  width: 100%;
+  border-radius: 5px;
+  padding: 0.5rem;
+  height: 2.5rem;
+  font-size: 1.1rem;
+  background: transparent;
+  border: 1px solid var(--primary-color);
 }
 
-.comments-container button{
-    border-radius: 5px;
-    width: 4rem;
-    margin-left: 10px;
-    border: none;
-    font-size: 1.1rem;
-    background-color: var(--primary-color);
-    color: white;
+.comments-container button {
+  border-radius: 5px;
+  width: 4rem;
+  margin-left: 10px;
+  border: none;
+  font-size: 1.1rem;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.loading {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

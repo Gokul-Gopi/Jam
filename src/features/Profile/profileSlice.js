@@ -9,19 +9,20 @@ export const getUserDetails = createAsyncThunk(
       method: "GET",
       url: `${BACKEND}/user/profile`,
     });
-
     return data;
   }
 );
 
-// export const getUsersPosts = createAsyncThunk('profile/getUsersPosts', async () => {
-//     const { data } = await axios({
-//         method: 'GET',
-//         url: `${BACKEND}/post`,
-//     })
-//     console.log(data)
-//     return data;
-// })
+export const getUsersPosts = createAsyncThunk(
+  "profile/getUsersPosts",
+  async () => {
+    const { data } = await axios({
+      method: "GET",
+      url: `${BACKEND}/post`,
+    });
+    return data;
+  }
+);
 
 const initialState = {
   loading: false,
@@ -57,12 +58,23 @@ export const profileSlice = createSlice({
       state.profileLoading = true;
     },
     [getUserDetails.fulfilled]: (state, action) => {
-      const { userData, userPosts } = action.payload;
-      state.userDetails = userData;
-      state.userPosts = userPosts;
+      const { userDetails } = action.payload;
+      state.profileData = userDetails;
       state.profileLoading = false;
     },
     [getUserDetails.rejected]: (state, action) => {
+      state.message = action.payload.message;
+      state.profileLoading = true;
+    },
+    [getUsersPosts.pending]: (state) => {
+      state.profileLoading = true;
+    },
+    [getUsersPosts.fulfilled]: (state, action) => {
+      const { allPosts } = action.payload;
+      state.userPosts = allPosts;
+      state.profileLoading = false;
+    },
+    [getUsersPosts.rejected]: (state, action) => {
       state.message = action.payload.message;
       state.profileLoading = true;
     },
