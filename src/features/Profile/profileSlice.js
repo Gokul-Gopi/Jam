@@ -58,8 +58,8 @@ export const profileSlice = createSlice({
       state.profileLoading = true;
     },
     [getUserDetails.fulfilled]: (state, action) => {
-      const { userDetails } = action.payload;
-      state.profileData = userDetails;
+      const { userData } = action.payload;
+      state.profileData = userData;
       state.profileLoading = false;
     },
     [getUserDetails.rejected]: (state, action) => {

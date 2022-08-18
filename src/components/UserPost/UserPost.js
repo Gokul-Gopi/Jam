@@ -43,9 +43,9 @@ const UserPost = ({ postID, name, likes, comments, input }) => {
         </div>
 
         <div>
-          <button onClick={() => setExpandPostContainer((pre) => !pre)}>
+          {/* <button onClick={() => setExpandPostContainer((pre) => !pre)}>
             <BiCommentDetail />
-          </button>
+          </button> */}
           <span>{comments?.length !== 0 && comments?.length}</span>
         </div>
       </div>

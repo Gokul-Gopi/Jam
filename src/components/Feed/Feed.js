@@ -4,10 +4,11 @@ import UserPost from "../UserPost/UserPost";
 import { useDispatch, useSelector } from "react-redux";
 import { createPost, loadPosts } from "../../features/Feed/feedSlice";
 import { MdSend } from "react-icons/md";
+import { Loader } from "../../components/Loader/Loader";
 
 const Feed = () => {
   const [postInput, setPostInput] = useState("");
-  const { posts } = useSelector((state) => state.feed);
+  const { posts, loading } = useSelector((state) => state.feed);
   const { isLoggedIn } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
@@ -20,6 +21,10 @@ const Feed = () => {
     isLoggedIn && dispatch(loadPosts());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className="feed">
@@ -39,7 +44,7 @@ const Feed = () => {
         </div>
 
         {posts.length === 0 ? (
-          <span>No post</span>
+          <span>Follow someone to see posts</span>
         ) : (
           posts.map((post) => {
             return (

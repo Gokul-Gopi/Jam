@@ -9,13 +9,14 @@ import "../UserProfile/UserProfile.css";
 import UserPost from "../UserPost/UserPost";
 import { BiExit } from "react-icons/bi";
 import { logout } from "../../features/Auth/authSlice";
+import { Loader } from "../Loader/Loader";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
   const { profileData, userPosts, profileLoading } = useSelector(
     (state) => state.profile
   );
-  console.log({ profileLoading, userPosts });
+
   const logoutHandler = () => {
     dispatch(logout());
   };
@@ -27,19 +28,15 @@ const UserProfile = () => {
   }, []);
 
   if (profileLoading || Object.keys(profileData).length < 1) {
-    return (
-      <div className="loading">
-        <span>Loading...</span>
-      </div>
-    );
+    return <Loader />;
   }
 
   return (
     <div className="user-profile">
       <div className="user-profile-container">
         <div className="user-name">
-          <div className="img"> {profileData?.userName[0].toUpperCase()}</div>
-          <div className="name"> {profileData?.userName}</div>
+          <div className="img"> {profileData?.name[0].toUpperCase()}</div>
+          <div className="name"> {profileData?.name}</div>
           <button className="logout-btn" onClick={() => logoutHandler()}>
             <BiExit />
           </button>
@@ -57,7 +54,7 @@ const UserProfile = () => {
                 <UserPost
                   key={post?._id}
                   postID={post?._id}
-                  name={profileData?.userName}
+                  name={profileData?.name}
                   likes={post?.likes}
                   comments={post?.comments}
                   input={post?.text}

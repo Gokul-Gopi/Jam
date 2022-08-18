@@ -51,7 +51,6 @@ export const commentOnPost = createAsyncThunk(
 
 const initialState = {
   loading: false,
-  postLoading: false,
   toast: null,
   posts: [],
   postMessage: null,
@@ -87,14 +86,15 @@ export const feedSlice = createSlice({
       state.loading = false;
     },
     [createPost.pending]: (state) => {
-      state.postLoading = true;
+      state.loading = true;
     },
     [createPost.fulfilled]: (state, action) => {
-      state.postLoading = false;
+      state.loading = false;
       state.success = true;
+      callToastify("Posted!", false);
     },
     [createPost.rejected]: (state) => {
-      state.postLoading = false;
+      state.loading = false;
     },
 
     [commentOnPost.fulfilled]: (state, action) => {
