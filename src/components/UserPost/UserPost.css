@@ -117,3 +117,9 @@
   background-color: var(--primary-color);
   color: white;
 }
+
+@media (max-width: 750px) {
+  .user-post {
+    width: 90%;
+  }
+}
