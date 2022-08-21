@@ -3,7 +3,7 @@ import "../PeopleCard/PeopleCard.css";
 import { useDispatch } from "react-redux";
 import { followUser } from "../../features/Explore/exploreSlice";
 
-const PeopleCard = ({ username, userbio, userID, following }) => {
+const PeopleCard = ({ username, userbio, userID, following, loading }) => {
   const dispatch = useDispatch();
 
   const followUserHandler = () => {
@@ -24,9 +24,13 @@ const PeopleCard = ({ username, userbio, userID, following }) => {
       </div>
       <div className="user-follow">
         {following ? (
-          <button onClick={() => followUserHandler()}>Unfollow</button>
+          <button disabled={loading} onClick={() => followUserHandler()}>
+            Unfollow
+          </button>
         ) : (
-          <button onClick={() => followUserHandler()}>Follow</button>
+          <button disabled={loading} onClick={() => followUserHandler()}>
+            Follow
+          </button>
         )}
       </div>
     </div>

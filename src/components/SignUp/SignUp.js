@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import { signUpUser } from "../../features/Auth/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -67,7 +69,7 @@ const SignUp = () => {
     if (!pwdValidator.test(pwd)) {
       setFormErrors((preValue) => ({
         ...preValue,
-        pwd: "*Minimum 8 characters long and must contain a number",
+        pwd: "*Minimum 8 characters long, alphanumeric",
       }));
       validator = false;
     } else {
@@ -159,7 +161,11 @@ const SignUp = () => {
                 setUserDetails((pre) => ({ ...pre, bio: e.target.value }))
               }
             />
-            <BiQuestionMark />
+            <Tippy content="This will be shown in your profile">
+              <div>
+                <BiQuestionMark />
+              </div>
+            </Tippy>
           </div>
 
           <span className="error">{formErrors.pwd}</span>

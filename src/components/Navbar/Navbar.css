@@ -15,8 +15,8 @@ nav h2 {
 
 nav .navigation-items {
   display: flex;
-  justify-content: space-evenly;
-  width: 30%;
+  justify-content: space-between;
+  width: 20rem;
 }
 
 nav .nav-link {
