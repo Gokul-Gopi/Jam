@@ -1,50 +1,69 @@
-.feed{
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-    font-size: 1.1rem;
+.feed {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 1.1rem;
 }
 
-.feed-container{
+.feed-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.feed-container > div {
+  margin-bottom: 3rem;
+}
+
+.create-post-input {
+  display: flex;
+  align-items: center;
+}
+
+.create-post-input input {
+  padding: 0.5rem 0.7rem;
+  width: 40rem;
+  height: 3rem;
+  font-size: 1.1rem;
+  margin-right: 15px;
+  border: 5px;
+  border-radius: 5px;
+  border: 2px solid var(--primary-color);
+  background-color: transparent;
+}
+
+.create-post-input input:focus {
+  outline: none;
+}
+
+.create-post-input button {
+  width: 3rem;
+  height: 3rem;
+  line-height: 1rem;
+  font-size: 1.5rem;
+  padding: 0px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+@media (max-width: 750px) {
+  .create-post-input {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    padding: 1rem;
-}
+    justify-content: center;
+    margin-top: 1rem;
+    width: 100%;
+  }
+  .create-post-input input {
+    margin-right: 0.3rem;
+    width: 80%;
+  }
 
-.feed-container > div{
-    margin-bottom: 3rem;
-}
-
-.create-post-input{
-   display: flex;
-   align-items: center;
-}
-
-.create-post-input input{
-    padding: 0.5rem 0.7rem;
-    width: 40rem;
-    height: 3rem;
-    font-size: 1.1rem;
-    margin-right: 15px;
-    border: 5px;
-    border-radius: 5px;
-    border: 2px solid var(--primary-color);
-    background-color: transparent;
-}
-
-.create-post-input input:focus{
-    outline: none;
-}
-
-.create-post-input button{
-    width: 3rem;
-    height: 3rem;
-    line-height: 1rem;
-    font-size: 1.5rem;
-    padding: 0px;
-    border-radius: 5px;
-    border: none;
-    background-color: var(--primary-color);
-    color: white;
+  .feed-container {
+    width: 100%;
+    padding: 0;
+  }
 }

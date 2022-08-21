@@ -1,61 +1,81 @@
-.people-card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    width: 11rem;
-    padding: 0.5rem;
-    border-radius: 7px;
+.people-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  width: 11rem;
+  padding: 0.5rem;
+  border-radius: 7px;
 }
 
 .people-card .user-img {
-    text-align: center;
-    border-bottom: 1px solid var(--primary-color);
+  text-align: center;
+  border-bottom: 1px solid var(--primary-color);
+  width: 100%;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+}
+
+.people-card .user-img img {
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+}
+
+.people-card .user-img .icon {
+  font-size: 3rem;
+}
+
+.people-card .user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.people-card .user-info span {
+  text-align: center;
+  width: 90%;
+  margin-bottom: 5px;
+}
+
+.people-card .user-info .username {
+  font-weight: bolder;
+}
+
+.people-card .user-info .userbio {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 10rem;
+  font-size: 1rem;
+}
+
+.people-card .user-follow button {
+  margin-top: 10px;
+  padding: 0.4rem;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  font-weight: 600;
+}
+
+@media (max-width: 750px) {
+  .people-card .user-follow {
     width: 100%;
-    padding: 0.5rem 0;
-    margin-bottom: 1rem;
+  }
+  .people-card .user-follow button {
+    width: 100%;
+  }
 }
 
-.people-card .user-img img{
-    border-radius: 50%;
-    height: 5rem;
-    width: 5rem;
-}
-
-.people-card .user-img .icon{
-    font-size: 3rem;
-}
-
-.people-card .user-info{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.people-card .user-info span{
-    text-align: center;
+@media (max-width: 400px) {
+  .people-card {
+    margin: 0 auto;
     width: 90%;
-    margin-bottom: 5px;
-}
+  }
 
-.people-card .user-info .username{
-    font-weight: bolder;
-}
-
-.people-card .user-info .userbio{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 10rem;
-    font-size: 1rem;
-}
-
-.people-card .user-follow button{
-    margin-top: 10px;
-    padding: 0.4rem;
-    border-radius: 5px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    font-weight: 600;
+  .people-card .user-follow {
+    width: 100%;
+  }
 }

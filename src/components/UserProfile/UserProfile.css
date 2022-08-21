@@ -1,69 +1,86 @@
-.user-profile{
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-profile-container {
+  position: relative;
+  width: 38rem;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.user-profile-container .user-name {
+  display: flex;
+  border-bottom: 1px solid gainsboro;
+  padding-bottom: 1rem;
+  font-weight: bold;
+}
+
+.user-profile-container .user-name .name {
+  align-self: flex-end;
+  font-size: 2rem;
+}
+
+.user-profile .user-name .img {
+  display: grid;
+  place-items: center;
+  height: 5.5rem;
+  width: 5.5rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.3);
+  color: white;
+  margin-right: 1rem;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.user-profile-container .user-bio {
+  margin: 1rem 0;
+  font-weight: 600;
+}
+
+.user-profile .logout-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 6%;
+  right: 3%;
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  color: var(--primary-color);
+}
+
+.user-allposts {
+  width: 38rem;
+}
+
+.user-allposts h2 {
+  margin: 1rem 0;
+  text-align: center;
+  color: var(--primary-color);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.user-allposts > div {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 750px) {
+  .user-profile-container {
+    position: relative;
+    width: 80%;
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  .user-allposts {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.user-profile-container{
-    position: relative;
-    width: 38rem;
-    padding: 1rem;
-    margin-top: 1rem;
-}
-
-.user-profile-container .user-name{
-    display: flex;
-    border-bottom: 1px solid gainsboro;
-    padding-bottom: 1rem;
-    font-weight: bold;
-}
-
-.user-profile-container .user-name .name{
-    align-self: flex-end;
-    font-size: 2rem;
-}
-
-.user-profile .user-name .img{
-    display: grid;
-    place-items: center;
-    height: 5.5rem;
-    width: 5.5rem;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    box-shadow: 1px 1px 3px 2px rgba(0,0,0,0.3);
-    color: white;
-    margin-right: 1rem;
-    font-size: 3rem;
-    font-weight: 600;
-}
-
-.user-profile-container .user-bio{
-    margin: 1rem 0;
-    font-weight: 600;
-}
-
-.user-profile .logout-btn{
-    cursor: pointer;
-    position: absolute;
-    top: 6%;
-    right: 3%;
-    font-size: 1.5rem;
-    background: transparent;
-    border: none;
-    color: var(--primary-color);
-}
-
-.user-allposts{
-    width: 38rem;
-}
-
-.user-allposts h2{
-    margin: 1rem 0;
-    text-align: center;
-    color: var(--primary-color);
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-}
-
-.user-allposts > div{
-    margin-bottom: 2rem;
+    width: 90%;
+  }
 }
