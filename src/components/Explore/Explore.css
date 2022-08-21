@@ -1,59 +1,89 @@
-.explore{
+.explore {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+.explore-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.explore-container > div {
+  margin-bottom: 2rem;
+}
+
+.search-user-input {
+  display: flex;
+  align-items: center;
+}
+
+.search-user-input input {
+  padding: 0.5rem;
+  width: 40rem;
+  height: 3rem;
+  font-size: 1.1rem;
+  margin-right: 15px;
+  border: 5px;
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  padding: 0.5rem 0.7rem;
+  border-radius: 5px;
+}
+
+.search-user-input input:focus {
+  outline: none;
+}
+
+.search-user-input button {
+  width: 3rem;
+  height: 3rem;
+  line-height: 1rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1.5rem;
+}
+
+.user-list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+}
+
+@media (max-width: 750px) {
+  .search-user-input {
     display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 1rem;
-    font-size: 1.1rem;
+    margin-top: 1rem;
+    width: 100%;
+  }
+  .search-user-input input {
+    margin-right: 0.3rem;
+    width: 80%;
+  }
+
+  .explore-container {
+    width: 100%;
+    padding: 0;
+  }
+
+  .user-list-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.explore-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-}
-
-.explore-container > div{
-    margin-bottom: 2rem;
-}
-
-.search-user-input{
-    display: flex;
-    align-items: center;
-}
-
-.search-user-input input{
-    padding: 0.5rem;
-    width: 40rem;
-    height: 3rem;
-    font-size: 1.1rem;
-    margin-right: 15px;
-    border: 5px;
-    background: transparent;
-    border: 2px solid var(--primary-color);
-    padding: 0.5rem 0.7rem;
-    border-radius: 5px;
-}
- 
-.search-user-input input:focus{
-    outline: none;
-}
- 
-.search-user-input button{
-    width: 3rem;
-    height: 3rem;
-    line-height: 1rem;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    border: none;
-    background-color: var(--primary-color);
-    color: white;
-    font-size: 1.5rem;
-}
-
-.user-list-grid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    grid-column-gap: 30px;
-    grid-row-gap: 30px
+@media (max-width: 400px) {
+  .user-list-grid {
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+  }
 }

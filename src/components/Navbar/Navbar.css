@@ -38,7 +38,7 @@ nav .link-to-home {
 
 @media (max-width: 750px) {
   nav {
-    padding-right: 0.5rem;
+    padding-right: 1rem;
   }
   nav .navigation-items {
     display: flex;
