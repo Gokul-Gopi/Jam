@@ -34,6 +34,7 @@ const Login = () => {
 
   return (
     <div className="authForm">
+      <h2 className="heading">JAM!</h2>
       <div className="auth-form-container">
         <form>
           <div className="input-box">
