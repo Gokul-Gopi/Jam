@@ -5,10 +5,13 @@ import { getUsers } from "../../features/Explore/exploreSlice";
 import "../Explore/Explore.css";
 import PeopleCard from "../PeopleCard/PeopleCard";
 import { BiSearchAlt } from "react-icons/bi";
+import { Loader } from "../Loader/Loader";
 
 const Explore = () => {
   const dispatch = useDispatch();
-  const { users } = useSelector((state) => state.explore);
+  const { users, loading, userFollowButtonLoading } = useSelector(
+    (state) => state.explore
+  );
 
   useEffect(() => {
     dispatch(getUsers());
@@ -19,6 +22,10 @@ const Explore = () => {
     // const filterUsers = users.filter(user => {
     // })
   };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className="explore">
@@ -45,6 +52,7 @@ const Explore = () => {
                 userbio={e.bio}
                 userID={e._id}
                 following={e.following}
+                laoding={userFollowButtonLoading}
               />
             );
           })}

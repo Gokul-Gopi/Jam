@@ -30,6 +30,7 @@ const initialState = {
   message: null,
   users: [],
   usersFollowed: [],
+  userFollowButtonLoading: false,
 };
 
 export const exploreSlice = createSlice({
@@ -66,7 +67,11 @@ export const exploreSlice = createSlice({
       state.message = action.payload.message;
       state.loading = false;
     },
+    [followUser.pending]: (state, action) => {
+      state.userFollowButtonLoading = true;
+    },
     [followUser.fulfilled]: (state, action) => {
+      state.userFollowButtonLoading = false;
       state.users = state.users.map((user) => {
         if (user._id === action.payload.updatedFollowers) {
           return { ...user, following: !user.following };

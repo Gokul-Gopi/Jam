@@ -46,10 +46,10 @@ const Feed = () => {
         {posts.length === 0 ? (
           <span>Follow someone to see posts</span>
         ) : (
-          posts.map((post) => {
+          posts.map((post, i) => {
             return (
               <UserPost
-                key={post.id}
+                key={i}
                 name={post.name}
                 postID={post.id}
                 likes={post.likes}
