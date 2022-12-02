@@ -1,1 +1,1 @@
-export const BACKEND = "https://jam--backend.herokuapp.com";
+export const BACKEND = "https://jam-backend.onrender.com";
